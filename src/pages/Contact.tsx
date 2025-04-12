@@ -5,7 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Instagram, Twitter, Youtube, Spotify, Mail, MapPin } from "lucide-react";
+import { Instagram, Twitter, Youtube, Music, Mail, MapPin } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -88,7 +88,7 @@ const Contact = () => {
                       href="#" 
                       className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary-600 transition-colors"
                     >
-                      <Spotify size={24} />
+                      <Music size={24} />
                     </a>
                   </div>
                 </div>

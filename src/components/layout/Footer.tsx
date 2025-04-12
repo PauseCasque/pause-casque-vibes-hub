@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { Instagram, Spotify, Youtube, Twitter, Mail } from "lucide-react";
+import { Instagram, Music, Youtube, Twitter, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -62,7 +62,7 @@ const Footer = () => {
                 <Instagram size={20} className="text-primary" />
               </a>
               <a href="#" className="h-10 w-10 rounded-full bg-white flex items-center justify-center hover-scale">
-                <Spotify size={20} className="text-primary" />
+                <Music size={20} className="text-primary" />
               </a>
               <a href="#" className="h-10 w-10 rounded-full bg-white flex items-center justify-center hover-scale">
                 <Youtube size={20} className="text-primary" />
