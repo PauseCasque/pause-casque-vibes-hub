@@ -6,8 +6,32 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Instagram, Twitter, Youtube, Music, Mail, MapPin } from "lucide-react";
+import { useState } from "react";
+import { sendContactForm } from "@/services/MailService";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await sendContactForm(formData);
+      alert("Message envoyé avec succès !");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error: any) {
+      alert("Erreur : " + error.message);
+    }
+  };
   return (
     <Layout>
       <HeroSection
@@ -22,20 +46,20 @@ const Contact = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6">Écrivez-nous</h2>
               
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                       Nom
                     </label>
-                    <Input id="name" placeholder="Votre nom" />
+                    <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Votre nom" />
                   </div>
                   
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                       Email
                     </label>
-                    <Input id="email" type="email" placeholder="votre@email.com" />
+                    <Input id="email" name="email" value={formData.email} onChange={handleChange} type="email" placeholder="votre@email.com" />
                   </div>
                 </div>
 
@@ -43,17 +67,17 @@ const Contact = () => {
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
                     Sujet
                   </label>
-                  <Input id="subject" placeholder="Sujet de votre message" />
+                  <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder="Sujet de votre message" />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                     Message
                   </label>
-                  <Textarea id="message" placeholder="Votre message ici..." rows={6} />
+                  <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Votre message ici..." rows={6} />
                 </div>
 
-                <Button type="submit" size="lg">
+                <Button type="submit"  size="lg">
                   Envoyer
                 </Button>
               </form>
