@@ -91,29 +91,31 @@ const Contact = () => {
                   <h3 className="font-semibold text-lg mb-4">Suivez-nous</h3>
                   <div className="flex gap-4">
                     <a 
-                      href="#" 
+                      target="_blank"
+                      href="https://www.instagram.com/pausecasque/" 
                       className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary-600 transition-colors"
                     >
                       <Instagram size={24} />
                     </a>
-                    <a 
+                    {/* <a 
                       href="#" 
                       className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary-600 transition-colors"
                     >
                       <Twitter size={24} />
-                    </a>
+                    </a> */}
                     <a 
-                      href="#" 
+                      target="_blank"
+                      href="https://www.youtube.com/@PauseCasque0" 
                       className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary-600 transition-colors"
                     >
                       <Youtube size={24} />
                     </a>
-                    <a 
+                    {/* <a 
                       href="#" 
                       className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary-600 transition-colors"
                     >
                       <Music size={24} />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
 

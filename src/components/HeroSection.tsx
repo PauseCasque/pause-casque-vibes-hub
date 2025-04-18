@@ -21,7 +21,7 @@ const HeroSection = ({
 }: HeroProps) => {
   return (
     <section
-      className={`py-24 ${backgroundClass} min-h-[70vh] flex items-center`}
+      className={`py-24 ${backgroundClass} min-h-[50vh] flex items-center`}
     >
       <div className="container">
         <div className={`max-w-3xl mx-auto ${centered ? "text-center" : ""}`}>
